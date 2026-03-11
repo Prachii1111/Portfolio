@@ -4,6 +4,10 @@ import './Home.css';
 import profile from "../assets/Profile.png"; // your image
 import sun from "../assets/sun.png";
 import moon from "../assets/moon.png";
+import mail from "../assets/envelope.png";
+import phone from "../assets/phone.png";
+import github from "../assets/github2.png";
+import linkedin from "../assets/linkedin.png";
 
 export function Home() {
     const [dark, setDark] = useState(true);
@@ -61,7 +65,7 @@ export function Home() {
             {/* About Me */}
             <section id="about-section">
                 <div className="about-me">
-                    <h2 id="about-heading">About Me</h2>
+                    <h2 id="about-heading">About <span>Me</span></h2>
                     <div className="about">
                         <p className="about-desc">I'm a Computer Engineering student passionate about software development and building real-world applications. I enjoy transforming ideas into working products through code and continuous experimentation.</p> 
                         <p className="about-desc">My current focus is on full-stack development, working with technologies like <span>JavaScript</span>, <span>React</span>, <span>Node.js</span>, and databases such as <span>MongoDB</span> and <span>MySQL</span>. I enjoy learning through projects and solving technical challenges along the way.</p>
@@ -70,6 +74,33 @@ export function Home() {
                             Beyond coding, I relish reading developer blogs and journaling, which helps me reflect, stay motivated, and maintain a clear and focused mindset.
                         </p>
                     </div>
+                </div>
+
+                <div className="social-handles">
+                    <h3>Contact</h3>
+
+                    <div className="socials">
+                        <div className="first">
+                            <div className="mail">
+                                <img src={mail} alt="Email" />
+                                <p>prachu11badekar@gmail.com</p>
+                            </div>
+                            <div className="phone">
+                                <img src={phone} alt="Email" />
+                                <p>+91 7284392849</p>
+                            </div>
+                        </div>
+                        <div className="second">
+                            <div className="linkedin">
+                                <img src={linkedin} alt="Email" />
+                                <a href="">LinkedIn</a>
+                            </div>
+                            <div className="github">
+                                <img src={github} alt="Email" />
+                                <a href="https://github.com/Prachii1111">Visit Github</a>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
             </section>
 

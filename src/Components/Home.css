@@ -153,7 +153,7 @@ body.light .theme-btn {
 #about-section {
   border: 1px solid orange;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .about-me {
@@ -168,9 +168,13 @@ body.light .theme-btn {
 }
 
 #about-heading {
-  color: var(--hightlight-color);
+  color: white;
   font-size: 2.8rem;
 } 
+
+#about-heading span {
+  color: var(--hightlight-color);
+}
 
 .about {
   /* border: 1px solid green; */
@@ -192,7 +196,62 @@ body.light .theme-btn {
   border-bottom: 2px solid #D5AB93;
 }
 
+.social-handles {
+  /* border: 1px solid gold; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
 
+.social-handles h3 {
+  font-size: 1.5rem;
+  letter-spacing: 0.7;
+}
+
+.socials {
+  /* background-color: lightskyblue; */
+  /* border: 1px dotted mediumaquamarine; */
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 20px;
+  gap: 40px;
+}
+
+.socials .first, .socials .second {
+  /* background-color: rgb(185, 185, 113); */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.socials .second {
+  /* background-color: lightpink; */
+}
+
+.mail, .phone, .linkedin, .github {
+  display: flex;
+  gap: 20px;
+  /* border: 1px solid orangered; */
+}
+
+.mail p, .phone p, .linkedin a, .github a {
+  font-size: 1.1rem;
+  color: var(--hightlight-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.mail p:hover, .phone p:hover, .linkedin a:hover, .github a:hover {
+  color: rgb(237, 236, 236);
+}
+.socials img {
+  width: 20px;
+  height: 20px;
+}
 
 
 
