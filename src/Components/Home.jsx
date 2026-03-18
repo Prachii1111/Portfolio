@@ -8,6 +8,22 @@ import mail from "../assets/envelope.png";
 import phone from "../assets/phone.png";
 import github from "../assets/github2.png";
 import linkedin from "../assets/linkedin.png";
+import html from "../assets/html-5.png"
+import css from "../assets/css-3.png";
+import js from "../assets/js.png";
+import react from "../assets/react2.png"
+import node from "../assets/node-js.png"
+import express from "../assets/express.png"
+import mongdoDb from "../assets/mongodb.svg"
+import MySQL from "../assets/mysql.svg";
+import java from "../assets/java.svg"
+import vsCode from "../assets/vscode2.png"
+import vite from "../assets/vite.png"
+import git from "../assets/git.svg"
+import gitHub from "../assets/github.svg"
+import postman from "../assets/postman.svg"
+import vercel from "../assets/vercel.png"
+
 
 export function Home() {
     const [dark, setDark] = useState(true);
@@ -27,6 +43,7 @@ export function Home() {
                 <ul className="nav-links">
                     <li>Home</li>
                     <li>About</li>
+                    <li>Skills</li>
                     <li>Projects</li>
                     <li>Certifications</li>
                     <li>Contact</li>
@@ -97,11 +114,126 @@ export function Home() {
                             </div>
                             <div className="github">
                                 <img src={github} alt="Email" />
-                                <a href="https://github.com/Prachii1111">Visit Github</a>
+                                <a href="https://github.com/Prachii1111" target="_blank">Visit Github</a>
                             </div>
                         </div>
                     </div> 
                 </div>
+            </section>
+
+            {/* Skills */}
+            <section className="skills-section">
+                <div className="header">
+                    <h2>Skills</h2>
+                    <p>Technologies I work with</p>
+                    <div className="bar"></div>
+                </div>
+
+                <div className="frontend">
+                    <div className="heading">
+                        <h3>Frontend</h3>
+                        <hr/>
+                    </div>
+                    <p className="text">Building beautiful, responsive user interfaces</p>
+                    <div className="frontend-stacks">
+                        <div className="stack">
+                            <img src={html}/>
+                            <p>HTML</p>
+                        </div>
+                        <div className="stack">
+                            <img src={css}/>
+                            <p>CSS</p>
+                        </div>
+                        <div className="stack">
+                            <img src={js}/>
+                            <p>JavaScript</p>
+                        </div>
+                        <div className="stack">
+                            <img src={react}/>
+                            <p>React</p>
+                        </div>
+                        
+
+                    </div>
+                </div>
+
+                <div className="backend">
+                    <div className="heading">
+                        <h3>Backend</h3>
+                        <hr/>
+                    </div>
+                    <p>Powering applications with robust server-side logic</p>
+                    <div className="backend-stacks">
+                        <div className="stack">
+                            <img src={node} />
+                            <p>Node.js</p>
+                        </div>
+                        <div className="stack">
+                            <img src={express} />
+                            <p>Express.js</p>
+                        </div>
+                        <div className="stack">
+                            <img src={mongdoDb} />
+                            <p>MongoDB</p>
+                        </div>
+                        <div className="stack">
+                            <img src={MySQL} />
+                            <p>MySQL</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div className = "languages">
+                    <div className="heading">
+                        <h3>Languages</h3>
+                        <hr/>
+                    </div>
+                    <p>Core programming languages I work with</p>
+
+                    <div className="language-stack">
+                        <div className="stack">
+                            <img src={java}/>
+                            <p>Java</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className = "toolsPlatform">
+                    <div className="heading">
+                        <h3>Tools & Platform</h3>
+                        <hr/>
+                    </div>
+                    <p>Dev tools and platforms that streamline my workflow</p>
+
+                    <div className="tools-stack">
+                        <div className="stack">
+                            <img src={vsCode}/>
+                            <p>VS Code</p>
+                        </div>
+                        <div className="stack">
+                            <img src={git}/>
+                            <p>Git</p>
+                        </div>
+                        <div className="stack">
+                            <img src={gitHub}/>
+                            <p>GitHub</p>
+                        </div>
+                        <div className="stack">
+                            <img src={postman}/>
+                            <p>Postman</p>
+                        </div>
+                        <div className="stack">
+                            <img src={vite}/>
+                            <p>Vite</p>
+                        </div>
+                        <div className="stack">
+                            <img src={vercel}/>
+                            <p>Vercel</p>
+                        </div>
+
+                    </div>
+                </div> 
             </section>
 
 
