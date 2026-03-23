@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Home.css';
 import profile from "../assets/Profile.png"; // your image
 import sun from "../assets/sun.png";
@@ -23,10 +23,17 @@ import git from "../assets/git.svg"
 import gitHub from "../assets/github.svg"
 import postman from "../assets/postman.svg"
 import vercel from "../assets/vercel.png"
-
+import globe from "../assets/globe.png";
+import githubWhite from "../assets/githubWhite2.png"
+import frontend from "../assets/frontend_project.png"
+import noteApp from "../assets/notes-taking-app.png"
 
 export function Home() {
-    const [dark, setDark] = useState(true);
+    const [dark, setDark] = useState(false);
+
+    useEffect(() => {
+        document.body.className = dark ? "dark" : "light";
+    }, [dark]);
 
     const toggleTheme = () => {
         setDark(prev => {
@@ -49,7 +56,7 @@ export function Home() {
                     <li>Contact</li>
                 </ul>
 
-                <button className="theme-btn" onClick={toggleTheme}>
+                <button className={dark ? "theme-btn-dark" : "theme-btn-light" } onClick={toggleTheme}>
                     <img src={dark ? sun : moon } alt="theme icon" className="theme-icon"
                     />
                 </button>
@@ -234,6 +241,149 @@ export function Home() {
 
                     </div>
                 </div> 
+            </section>
+
+            {/* Projects */}
+            <section className="projects-section">
+                <div className="project-heading">
+                    <h3>Projects</h3>
+                    <p>My Recent Works</p>
+                    <div className="bar"></div>
+                </div>
+
+                <div className="projects-intro">
+                    <div className="project-card">
+                        <div className="project-preview">
+                            <img src={frontend} />
+                        </div>
+                        <div className="project-info">
+                            {/* <div className="intro"> */}
+                                <p className="title">MindMock</p>
+                                {/* <div className="socials">
+                                    <img src={githubWhite} />
+                                    <img src={globe} />
+                                </div> */}
+                            {/* </div> */}
+                            <p className="desc">TheMindMock is an AI-powered career preparation platform that helps job seekers optimize their resumes and simulate realistic.</p>
+                            <div className="project-stack">
+                                <div className="stack-name">
+                                    <img src={react}/>
+                                    <span>React</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={node}/>
+                                    <span>NodeJs</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={mongdoDb} />
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                            <div className="links">
+                                <button>
+                                    <img src={githubWhite} />
+                                    <span>Source Code</span>
+                                </button>
+                                <button>
+                                    <img src={globe} />
+                                    <span>Live Demo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className="project-card">
+                        <div className="project-preview">
+                            <img src={noteApp} />
+                        </div>
+                        <div className="project-info">
+                            {/* <div className="intro"> */}
+                                <p className="title">MindMock</p>
+                                {/* <div className="socials">
+                                    <img src={githubWhite} />
+                                    <img src={globe} />
+                                </div> */}
+                            {/* </div> */}
+                            <p className="desc">TheMindMock is an AI-powered career preparation platform that helps job seekers optimize their resumes and simulate realistic.</p>
+                            <div className="project-stack">
+                                <div className="stack-name">
+                                    <img src={react}/>
+                                    <span>React</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={node}/>
+                                    <span>NodeJs</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={mongdoDb} />
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                            <div className="links">
+                                <button>
+                                    <img src={githubWhite} />
+                                    <span>Source Code</span>
+                                </button>
+                                <button>
+                                    <img src={globe} />
+                                    <span>Live Demo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className="project-card">
+                        <div className="project-preview">
+                            <img src={noteApp} />
+                        </div>
+                        <div className="project-info">
+                            {/* <div className="intro"> */}
+                                <p className="title">MindMock</p>
+                                {/* <div className="socials">
+                                    <img src={githubWhite} />
+                                    <img src={globe} />
+                                </div> */}
+                            {/* </div> */}
+                            <p className="desc">TheMindMock is an AI-powered career preparation platform that helps job seekers optimize their resumes and simulate realistic.</p>
+                            <div className="project-stack">
+                                <div className="stack-name">
+                                    <img src={react}/>
+                                    <span>React</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={node}/>
+                                    <span>NodeJs</span>
+                                </div>
+                                <div className="stack-name">
+                                    <img src={mongdoDb} />
+                                    <span>MongoDB</span>
+                                </div>
+                            </div>
+                            <div className="links">
+                                <button>
+                                    <img src={githubWhite} />
+                                    <span>Source Code</span>
+                                </button>
+                                <button>
+                                    <img src={globe} />
+                                    <span>Live Demo</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            {/* Certifications */}
+            <section className="certifications-section">
+                <div className="certificate-heading">
+                    <h3>Certifications</h3>
+                    <p>Theoretical foundations that power my practical solutions</p>
+                </div>
             </section>
 
 

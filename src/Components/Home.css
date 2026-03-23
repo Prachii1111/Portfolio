@@ -1,71 +1,80 @@
 * {
-    margin: 0; 
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-  --hightlight-color: #9929EA;
+  /* --hightlight-color: #9929EA;
   --hightlight: #ff2e93;
   --high: #948979;
   --color: #AD49E1;
-  --highlight-glow: rgba(153, 41, 234, 0.5);
+  --highlight-glow: rgba(153, 41, 234, 0.5); */
 
+  --accent:         #9929EA;
+    --accent-dim:     rgba(153, 41, 234, 0.18);
+    --accent-glow:    rgba(153, 41, 234, 0.45);
+    --accent-hover:   #b94ef5;
+    --tag-bg:         #9929EA;
+    --underline-color:#D5AB93;
 }
+
+
+
 main {
-    /* background-color: black; */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  /* background-color: black; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 body.dark {
-    background: black;
-    color: white;
+  background: black;
+  color: white;
 }
 
 body.light {
-    background: white;
-    color: black;
+  background: white;
+  color: black;
 }
 
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 40px;
-    gap: 35px;
-    /* border: 1px solid yellow; */
-    color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  gap: 35px;
+  /* border: 1px solid yellow; */
+  color: white;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    font-size: 18px;
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  font-size: 18px;
 }
 
 .nav-links li {
-    cursor: pointer;
-    font-size: 1.2rem;
-    position: relative;
-    transition: border-bottom 0.2 ease-in;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: relative;
+  transition: border-bottom 0.2 ease-in;
 }
 
 .nav-links li::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 2px;
-    background: var(--hightlight-color);
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--hightlight-color);
+  transition: width 0.3s ease;
 }
 
 .nav-links li:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .theme-icon {
@@ -73,8 +82,20 @@ body.light {
   height: 20px;
 }
 
-.theme-btn {
-  background: #3F3F46;
+.theme-btn-light {
+  /* background: #3F3F46; */
+  background: rgb(205, 204, 204);
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-btn-dark {
+  background: var(--hightlight-color);
   border: none;
   padding: 8px;
   border-radius: 50%;
@@ -85,12 +106,12 @@ body.light {
 }
 
 .theme-btn:hover {
-    border: 2px solid rgb(231, 230, 230);
+  border: 2px solid rgb(231, 230, 230);
 }
 
 body.light .theme-btn {
-    background: #efeeee;
-    color: black;
+  background: #efeeee;
+  color: black;
 }
 
 /* Hero section  */
@@ -102,7 +123,7 @@ body.light .theme-btn {
   /* padding: 80px 120px; */
   padding: 80px 8%;
   min-height: 80vh;
-  background: black;
+  /* background: black; */
   color: white;
   border: 1px solid red;
 }
@@ -146,7 +167,7 @@ body.light .theme-btn {
   border-radius: 50%;
   object-fit: cover;
 
-  border: 4px solid var(--hightlight-color);  
+  border: 4px solid var(--hightlight-color);
 }
 
 
@@ -173,7 +194,7 @@ body.light .theme-btn {
 #about-heading {
   color: white;
   font-size: 2.8rem;
-} 
+}
 
 #about-heading span {
   color: var(--hightlight-color);
@@ -223,7 +244,8 @@ body.light .theme-btn {
   gap: 40px;
 }
 
-.socials .first, .socials .second {
+.socials .first,
+.socials .second {
   /* background-color: rgb(185, 185, 113); */
   display: flex;
   flex-direction: column;
@@ -234,13 +256,19 @@ body.light .theme-btn {
   /* background-color: lightpink; */
 }
 
-.mail, .phone, .linkedin, .github {
+.mail,
+.phone,
+.linkedin,
+.github {
   display: flex;
   gap: 20px;
   /* border: 1px solid orangered; */
 }
 
-.mail p, .phone p, .linkedin a, .github a {
+.mail p,
+.phone p,
+.linkedin a,
+.github a {
   font-size: 1.1rem;
   color: var(--hightlight-color);
   text-decoration: none;
@@ -248,9 +276,13 @@ body.light .theme-btn {
   transition: color 0.3s ease;
 }
 
-.mail p:hover, .phone p:hover, .linkedin a:hover, .github a:hover {
+.mail p:hover,
+.phone p:hover,
+.linkedin a:hover,
+.github a:hover {
   color: rgb(237, 236, 236);
 }
+
 .socials img {
   width: 20px;
   height: 20px;
@@ -267,8 +299,8 @@ body.light .theme-btn {
 .header {
   /* border: 1px solid red; */
   padding: 10px;
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   align-items: center;
   align-self: center;
   gap: 15px;
@@ -285,7 +317,8 @@ body.light .theme-btn {
   letter-spacing: 0.7px;
 }
 
-.header .bar {
+.header .bar,
+.project-heading .bar {
   width: 60px;
   height: 2px;
   background-color: var(--hightlight-color);
@@ -293,9 +326,22 @@ body.light .theme-btn {
 }
 
 
-.frontend, .backend, .languages, .toolsPlatform {
+.frontend,
+.backend,
+.languages,
+.toolsPlatform {
   border: 1px solid yellowgreen;
-  /* background-color:  #362244; */
+  /* background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.15) 0%,
+  rgba(129, 45, 174, 0.75) 40%,
+  rgba(33, 33, 33, 0.9) 100%
+); */
+
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  /* border-radius: 16px; */
   /* padding: 20px; */
   padding: 80px 8%;
   display: flex;
@@ -321,7 +367,9 @@ body.light .theme-btn {
   border-top: 1px solid rgb(88, 87, 87);
 }
 
-.frontend .text { color: rgb(179, 177, 177)}
+.frontend .text {
+  color: rgb(179, 177, 177)
+}
 
 .stack {
   width: 120px;
@@ -334,27 +382,29 @@ body.light .theme-btn {
   justify-content: center;
   gap: 10px;
 
-  background: rgba(255, 255, 255, 0.05); /* transparent */
+  background: rgba(255, 255, 255, 0.05);
+  /* transparent */
   background: #281d31;
-  backdrop-filter: blur(10px); /* glass blur */
+  backdrop-filter: blur(10px);
+  /* glass blur */
   -webkit-backdrop-filter: blur(10px);
 
   border: 1px solid var(--hightlight-color);
 
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.3), 
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 0 10px rgba(255, 255, 255, 0.05);
-  
-    transition: 0.3s ease;
+
+  transition: 0.3s ease;
 
 }
 
 .stack:hover {
   cursor: pointer;
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 0 20px var(--highlight-glow),
-    0 10px 30px rgba(0,0,0,0.4);
+    0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .stack img {
@@ -369,7 +419,10 @@ body.light .theme-btn {
   color: rgb(214, 211, 211);
 }
 
-.frontend-stacks, .backend-stacks, .language-stack, .tools-stack {
+.frontend-stacks,
+.backend-stacks,
+.language-stack,
+.tools-stack {
   /* background-color: rgb(90, 172, 200); */
   display: flex;
   gap: 10px;
@@ -383,10 +436,244 @@ body.light .theme-btn {
 }
 
 
+/* Projects section */
+.projects-section {
+  border: 1px solid blue;
+}
+
+.project-heading {
+  /* border: 1px solid lemonchiffon; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  gap: 15px;
+}
+
+.project-heading h3 {
+  color: white;
+  font-size: 2.3rem;
+}
+
+.project-heading p {
+  color: rgb(206, 203, 203);
+  font-size: 1.2rem;
+  letter-spacing: 0.7px;
+}
+
+.projects-intro {
+  border: 1px solid darkseagreen;
+  /* display: flex; */
+  /* padding: 50px 4%; */
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  gap: 30px;
+}
+
+.project-card {
+  /* background-color: rgb(67, 41, 85); */
+  background-color: #2e1d3b;
+  border: 1px solid rgb(79, 78, 78);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 15px;
+  /* border: 1px solid red; */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.04);
+  border: 2px solid var(--color);
+  cursor: pointer;
+}
+
+.project-preview {
+  /* border: 1px solid rgb(239, 163, 163); */
+  width: 390px;
+  height: 250px;
+  /* padding: 15px; */
+  /* border-radius: 8px; */
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.project-info {
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.project .intro {}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.desc {
+  color: rgb(221, 221, 221);
+  font-size: 1rem;
+  letter-spacing: 0.8;
+}
+
+.project-stack {
+  display: flex;
+  gap: 15px;
+  /* border: 1px solid gold; */
+}
+
+.stack-name {
+  width: 30%;
+  /* height: 40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #3D3F41;
+  padding: 5px 14px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.stack-name img {
+  width: 20px;
+  height: auto;
+}
+
+.stack-name span {
+  letter-spacing: 0.8;
+  font-size: 0.9rem;
+}
 
 
+.links {
+  /* border: 1px solid red; */
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
 
+.links button {
+  background-color: #303338;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 50%;
+  padding: 9px 15px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+}
 
+.links button img {
+  width: 15px;
+  height: auto;
+}
+
+.links span {
+  font-size: 1em;
+}
+
+/* Light Theme Overrides */
+body.light .navbar {
+  color: black;
+}
+
+body.light .hero {
+  color: black;
+}
+
+body.light .hero-left p {
+  color: #555;
+}
+
+body.light #about-heading {
+  color: black;
+}
+
+body.light .about-desc {
+  color: #333;
+}
+
+body.light .social-handles h3 {
+  color: black;
+}
+
+body.light .header h2 {
+  color: black;
+}
+
+body.light .header p {
+  color: #555;
+}
+
+body.light .frontend .text {
+  color: #555;
+}
+
+body.light .stack {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+body.light .stack p {
+  color: #333;
+}
+
+body.light .project-heading h3 {
+  color: black;
+}
+
+body.light .project-heading p {
+  color: #555;
+}
+
+body.light .project-card {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+body.light .title {
+  color: black;
+}
+
+body.light .desc {
+  color: #555;
+}
+
+body.light .stack-name {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+body.light .links button {
+  background-color: #e0e0e0;
+  color: black;
+}
+
+body.light .heading h3 {
+  color: black;
+}
+
+body.light .heading hr {
+  border-top: 1px solid #ccc;
+}
 
 
 
