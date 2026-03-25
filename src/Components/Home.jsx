@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import './Home.css';
+import "./Certifications.css";
+// import './Home2.css';
 import profile from "../assets/Profile.png"; // your image
 import sun from "../assets/sun.png";
 import moon from "../assets/moon.png";
@@ -27,13 +29,34 @@ import globe from "../assets/globe.png";
 import githubWhite from "../assets/githubWhite2.png"
 import frontend from "../assets/frontend_project.png"
 import noteApp from "../assets/notes-taking-app.png"
+import upgrad from "../assets/certificates/Upgrad.jpeg"
+import javaCert from "../assets/certificates/Java Certificate.jpg"
+import sql from "../assets/certificates/SQLMap_Certificate.jpg"
 
 export function Home() {
     const [dark, setDark] = useState(false);
+    const [showAll, setShowAll] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
 
     useEffect(() => {
         document.body.className = dark ? "dark" : "light";
     }, [dark]);
+
+    useEffect(() => {
+    const handleScroll = () => {
+    if (window.scrollY > 50) {
+        setScrolled(true);
+    } else {
+        setScrolled(false);
+    }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
 
     const toggleTheme = () => {
         setDark(prev => {
@@ -42,10 +65,59 @@ export function Home() {
             return newTheme;
         });
     };
+
+    const certificates = [
+        {
+            image: upgrad,
+            title: "Advanced Full Stack Development",
+            platform: "UpGrad",
+            date: "Apr 2025",
+            link: "https://verify.upgrad.com/certificate/123"
+        },
+        {
+            image: javaCert,
+            title: "Java Programming for Beginners",
+            platform: "Simplilearn",
+            date: "Mar 2025",
+            
+        },
+        {
+            image: sql,
+            title: "SQLMap for Ethical Hackers",
+            platform: "Udemy",
+            date: "Feb 2025",
+        },
+        {
+            image: upgrad,
+            title: "Advanced Full Stack Development",
+            platform: "UpGrad",
+            date: "Apr 2025",
+            link: "https://verify.upgrad.com/certificate/123"
+        },
+        {
+            image: javaCert,
+            title: "Java Programming for Beginners",
+            platform: "Simplilearn",
+            date: "Mar 2025",
+        },
+        {
+            image: sql,
+            title: "SQLMap for Ethical Hackers",
+            platform: "Udemy",
+            date: "Feb 2025",
+        },
+
+    ];
+
+    const visibleCertificates = showAll
+    ? certificates
+    : certificates.slice(0, 3);
+
     
     return(
         <>
         <main>
+            <header className={`header ${scrolled ?     "scrolled" : ""}`}>
             <nav className="navbar">
                 <ul className="nav-links">
                     <li>Home</li>
@@ -61,6 +133,8 @@ export function Home() {
                     />
                 </button>
             </nav>
+        </header>
+            
             
 
             {/* Hero Section  */}
@@ -89,7 +163,10 @@ export function Home() {
             {/* About Me */}
             <section id="about-section">
                 <div className="about-me">
-                    <h2 id="about-heading">About <span>Me</span></h2>
+                    <div className="about">
+                        <h2 id="about-heading">About Me</h2>
+                        <div className="bar"></div>
+                    </div>
                     <div className="about">
                         <p className="about-desc">I'm a Computer Engineering student passionate about software development and building real-world applications. I enjoy transforming ideas into working products through code and continuous experimentation.</p> 
                         <p className="about-desc">My current focus is on full-stack development, working with technologies like <span>JavaScript</span>, <span>React</span>, <span>Node.js</span>, and databases such as <span>MongoDB</span> and <span>MySQL</span>. I enjoy learning through projects and solving technical challenges along the way.</p>
@@ -117,7 +194,7 @@ export function Home() {
                         <div className="second">
                             <div className="linkedin">
                                 <img src={linkedin} alt="Email" />
-                                <a href="">LinkedIn</a>
+                                <a href="https://www.linkedin.com/in/prachii11/" target="_blank">LinkedIn</a>
                             </div>
                             <div className="github">
                                 <img src={github} alt="Email" />
@@ -130,7 +207,7 @@ export function Home() {
 
             {/* Skills */}
             <section className="skills-section">
-                <div className="header">
+                <div className="skills-header">
                     <h2>Skills</h2>
                     <p>Technologies I work with</p>
                     <div className="bar"></div>
@@ -280,11 +357,11 @@ export function Home() {
                                 </div>
                             </div>
                             <div className="links">
-                                <button>
+                                <button id="github-btn">
                                     <img src={githubWhite} />
                                     <span>Source Code</span>
                                 </button>
-                                <button>
+                                <button id="liveDemo">
                                     <img src={globe} />
                                     <span>Live Demo</span>
                                 </button>
@@ -321,11 +398,11 @@ export function Home() {
                                 </div>
                             </div>
                             <div className="links">
-                                <button>
+                                <button id="github-btn">
                                     <img src={githubWhite} />
                                     <span>Source Code</span>
                                 </button>
-                                <button>
+                                <button id="liveDemo">
                                     <img src={globe} />
                                     <span>Live Demo</span>
                                 </button>
@@ -362,11 +439,11 @@ export function Home() {
                                 </div>
                             </div>
                             <div className="links">
-                                <button>
+                                <button id="github-btn">
                                     <img src={githubWhite} />
                                     <span>Source Code</span>
                                 </button>
-                                <button>
+                                <button id="liveDemo">
                                     <img src={globe} />
                                     <span>Live Demo</span>
                                 </button>
@@ -379,14 +456,55 @@ export function Home() {
             </section>
 
             {/* Certifications */}
-            <section className="certifications-section">
+            {/* <section className="certifications-section">
                 <div className="certificate-heading">
                     <h3>Certifications</h3>
                     <p>Theoretical foundations that power my practical solutions</p>
+                    <div className="bar"></div>
                 </div>
-            </section>
+                <button className="view-all-btn">
+                    View All 
+                    <img/>
+                </button>
+            </section> */}
 
+            <section className="certifications-section">
+    
+            <div className="certificate-heading">
+                <h3>Certifications</h3>
+                <p>Theoretical foundations that power my practical solutions</p>
+                <div className="bar"></div>
+            </div>
 
+            <button
+                className="view-all-btn"
+                onClick={() => setShowAll(prev => !prev)}
+            >
+                {showAll ? "Show Less" : "View All"}
+            </button>
+
+            <div className={`certificates-container ${showAll ? "scroll" : ""}`}>
+                {visibleCertificates.map((cert, index) => (
+                    
+                    <div className="certificate-card" key={index}>
+
+                    <img src={cert.image} alt="certificate" />
+
+                    {/* ✅ ADD THIS WRAPPER */}
+                    <div className="overlay">
+                        <div className="overlay-content">
+                        <h4>{cert.title}</h4>
+                        <p>{cert.platform}</p>
+                        <span>{cert.date}</span>
+
+                        <button className="verify-btn" onClick={() => window.open(cert.link, "_blank")}>Verify</button>
+                    </div>
+                    </div>
+                </div>
+                ))}
+            </div>
+
+        </section>
             
     </main>
 

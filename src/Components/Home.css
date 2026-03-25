@@ -11,7 +11,7 @@
   --color: #AD49E1;
   --highlight-glow: rgba(153, 41, 234, 0.5); */
 
-  --accent:         #9929EA;
+    --accent:         #9929EA;
     --accent-dim:     rgba(153, 41, 234, 0.18);
     --accent-glow:    rgba(153, 41, 234, 0.45);
     --accent-hover:   #b94ef5;
@@ -38,14 +38,40 @@ body.light {
   color: black;
 }
 
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 1000;
+
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: var(--accent-dim);
+  backdrop-filter: blur(10px); /* 🔥 glass effect */
+}
+
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 40px;
-  gap: 35px;
-  /* border: 1px solid yellow; */
+  padding: 16px 60px;
+  gap: 50px;
   color: white;
+  /* position: sticky; */
+  /* top: 0; */
+  /* z-index: 1000; */
+  /* background-color: var(--accent-dim); */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(153, 41, 234, 0.3);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
 .nav-links {
@@ -57,20 +83,27 @@ body.light {
 
 .nav-links li {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   position: relative;
-  transition: border-bottom 0.2 ease-in;
+  transition: color 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.nav-links li:hover {
+  color: var(--accent-hover);
 }
 
 .nav-links li::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -8px;
   width: 0;
-  height: 2px;
-  background: var(--hightlight-color);
-  transition: width 0.3s ease;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .nav-links li:hover::after {
@@ -83,19 +116,19 @@ body.light {
 }
 
 .theme-btn-light {
-  /* background: #3F3F46; */
   background: rgb(205, 204, 204);
-  border: none;
+  border: 2px solid transparent;
   padding: 8px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .theme-btn-dark {
-  background: var(--hightlight-color);
+  background: var(--accent);
   border: none;
   padding: 8px;
   border-radius: 50%;
@@ -103,10 +136,13 @@ body.light {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
-.theme-btn:hover {
-  border: 2px solid rgb(231, 230, 230);
+.theme-btn-light:hover,
+.theme-btn-dark:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(153, 41, 234, 0.4);
 }
 
 body.light .theme-btn {
@@ -125,7 +161,7 @@ body.light .theme-btn {
   min-height: 80vh;
   /* background: black; */
   color: white;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .hero-left {
@@ -138,7 +174,7 @@ body.light .theme-btn {
 }
 
 .highlight {
-  color: var(--hightlight-color);
+  color: var(--accent);
 }
 
 .hero-left p {
@@ -149,7 +185,7 @@ body.light .theme-btn {
 }
 
 .tag {
-  background: var(--hightlight-color);
+  background: var(--accent);
   padding: 4px 8px;
   border-radius: 4px;
   color: white;
@@ -167,7 +203,7 @@ body.light .theme-btn {
   border-radius: 50%;
   object-fit: cover;
 
-  border: 4px solid var(--hightlight-color);
+  border: 4px solid var(--tag-bg);
 }
 
 
@@ -193,11 +229,7 @@ body.light .theme-btn {
 
 #about-heading {
   color: white;
-  font-size: 2.8rem;
-}
-
-#about-heading span {
-  color: var(--hightlight-color);
+  font-size: 2.5rem;
 }
 
 .about {
@@ -270,7 +302,7 @@ body.light .theme-btn {
 .linkedin a,
 .github a {
   font-size: 1.1rem;
-  color: var(--hightlight-color);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -296,7 +328,7 @@ body.light .theme-btn {
   flex-direction: column;
 }
 
-.header {
+.skills-header, .about {
   /* border: 1px solid red; */
   padding: 10px;
   display: flex;
@@ -306,22 +338,23 @@ body.light .theme-btn {
   gap: 15px;
 }
 
-.header h2 {
+.skills-header h2 {
   color: white;
   font-size: 2.3rem;
 }
 
-.header p {
+.skills-header p {
   color: rgb(206, 203, 203);
   font-size: 1.2rem;
   letter-spacing: 0.7px;
 }
 
-.header .bar,
+.about .bar,
+.skills-header .bar,
 .project-heading .bar {
   width: 60px;
   height: 2px;
-  background-color: var(--hightlight-color);
+  background-color: var(--accent);
   border-radius: 5px;
 }
 
@@ -389,14 +422,12 @@ body.light .theme-btn {
   /* glass blur */
   -webkit-backdrop-filter: blur(10px);
 
-  border: 1px solid var(--hightlight-color);
+  /* border: 1px solid var(--accent); */
 
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 0 10px rgba(255, 255, 255, 0.05);
-
   transition: 0.3s ease;
-
 }
 
 .stack:hover {
@@ -405,6 +436,7 @@ body.light .theme-btn {
   box-shadow:
     0 0 20px var(--highlight-glow),
     0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--accent);
 }
 
 .stack img {
@@ -490,7 +522,7 @@ body.light .theme-btn {
 
 .project-card:hover {
   transform: scale(1.04);
-  border: 2px solid var(--color);
+  border: 2px solid var(--tag-bg);
   cursor: pointer;
 }
 
@@ -577,8 +609,9 @@ body.light .theme-btn {
   width: 50%;
   padding: 9px 15px;
   border-radius: 15px;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
+  transition: border-color 0.3s ease;
 }
 
 .links button img {
@@ -586,8 +619,13 @@ body.light .theme-btn {
   height: auto;
 }
 
-.links span {
+.links button span {
   font-size: 1em;
+}
+
+#github-btn:hover, #liveDemo:hover {
+  border-color: var(--tag-bg);
+  /* background-color: #fff; */
 }
 
 /* Light Theme Overrides */
@@ -675,11 +713,152 @@ body.light .heading hr {
   border-top: 1px solid #ccc;
 }
 
+/* Certifications  */
+
+.certifications-section {
+  padding: 40px;
+  text-align: center;
+  border: 1px solid greenyellow;
+}
+
+/* GRID */
+.certificates-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(, 1fr); */
+  gap: 30px;
+  margin-top: 40px;
+  transition: all 0.3s ease;
+  /* border: 1px solid hotpink; */
+}
+
+/* SCROLL MODE */
+.certificates-container.scroll {
+  max-height: 400px;   /* 👈 controls scroll area */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* CARD */
+.certificate-card {
+  position: relative;
+  width: 100%;
+  height: 270px;
+  border-radius: 12px;
+  overflow: hidden;
+  /* background-color: #2e1d3b; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  /* transition: transform 0.3s; */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* border: 1px solid darkorange; */
+  /* padding: 10px; */
+}
+
+.certificate-card:hover {
+  /* transform: scale(1.03); */
+  cursor: pointer;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  
+}
+
+.certificate-card img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  object-fit: contain;
+  padding: 10px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.certificate-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  text-align: center;
+  color: white;
+  transform: translateY(20px);
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.overlay-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.certificate-card:hover .overlay-content {
+  transform: translateY(0);
+}
+
+.verify-btn {
+  padding: 10px 18px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+/* smooth animation */
+.certificate-card:hover .verify-btn {
+  transform: translateY(0);
+}
+
+/* BUTTON */
+.view-all-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.certificate-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.certificate-heading h3 {
+  color: white;
+  font-size: 2.2rem;
+}
+
+.certificate-heading p {
+  color: rgb(206, 203, 203);
+  font-size: 1.1rem;
+  letter-spacing: 0.7px;
+}
+
 
 
 /* Mobile design  */
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
 
   .hero {
     flex-direction: column;
@@ -696,4 +875,4 @@ body.light .heading hr {
     height: 220px;
   }
 
-}
+} */
