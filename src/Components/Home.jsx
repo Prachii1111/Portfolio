@@ -123,7 +123,7 @@ export function Home() {
     return(
         <>
         <main>
-            <header className={`header ${scrolled ?"scrolled" : ""}`}>
+            <header className={`header ${scrolled ?     "scrolled" : ""}`}>
                 <nav className="navbar">
                     <ul className="nav-links">
                         <li>Home</li>
@@ -565,10 +565,10 @@ export function Home() {
                     using <span className="vite"><img src={vite}/></span>
                 </p>
 
-                {/* <div class="hits">
+                <div class="hits">
                     <span>hits</span>
                     <span class="count">707</span>
-                </div> */}
+                </div>
             </footer>
     </main>
 
