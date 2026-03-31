@@ -32,6 +32,12 @@ import noteApp from "../assets/notes-taking-app.png"
 import upgrad from "../assets/certificates/Upgrad.jpeg"
 import javaCert from "../assets/certificates/Java Certificate.jpg"
 import sql from "../assets/certificates/SQLMap_Certificate.jpg"
+import leetCode from "../assets/leetcode-removebg.png"
+import hackerRank from "../assets/hackerrank.png"
+import instagram from "../assets/instagram.png"
+import twitter from "../assets/twitter (3).png"
+import telegram from "../assets/telegram.png"
+import frontendMentor from "../assets/frontend.png";
 
 export function Home() {
     const [dark, setDark] = useState(false);
@@ -117,26 +123,25 @@ export function Home() {
     return(
         <>
         <main>
-            <header className={`header ${scrolled ?     "scrolled" : ""}`}>
-            <nav className="navbar">
-                <ul className="nav-links">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Skills</li>
-                    <li>Projects</li>
-                    <li>Certifications</li>
-                    <li>Contact</li>
-                </ul>
+            <header className={`header ${scrolled ?"scrolled" : ""}`}>
+                <nav className="navbar">
+                    <ul className="nav-links">
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Skills</li>
+                        <li>Projects</li>
+                        <li>Certifications</li>
+                        <li>Contact</li>
+                    </ul>
 
-                <button className={dark ? "theme-btn-dark" : "theme-btn-light" } onClick={toggleTheme}>
-                    <img src={dark ? sun : moon } alt="theme icon" className="theme-icon"
-                    />
-                </button>
-            </nav>
-        </header>
+                    <button className={dark ? "theme-btn-dark" : "theme-btn-light" } onClick={toggleTheme}>
+                        <img src={dark ? sun : moon } alt="theme icon" className="theme-icon"
+                        />
+                    </button>
+                </nav>
+            </header>
             
-            
-
+        
             {/* Hero Section  */}
             <section className="hero">
 
@@ -456,56 +461,115 @@ export function Home() {
             </section>
 
             {/* Certifications */}
-            {/* <section className="certifications-section">
+
+            <section className="certifications-section">
+    
                 <div className="certificate-heading">
                     <h3>Certifications</h3>
                     <p>Theoretical foundations that power my practical solutions</p>
                     <div className="bar"></div>
                 </div>
-                <button className="view-all-btn">
-                    View All 
-                    <img/>
+
+                <button className="view-all-btn"
+                    onClick={() => setShowAll(prev => !prev)}>
+                    {showAll ? "Show Less" : "View All"}
                 </button>
-            </section> */}
 
-            <section className="certifications-section">
-    
-            <div className="certificate-heading">
-                <h3>Certifications</h3>
-                <p>Theoretical foundations that power my practical solutions</p>
-                <div className="bar"></div>
-            </div>
+                <div className={`certificates-container ${showAll ? "scroll" : ""}`}>
+                    {visibleCertificates.map((cert, index) => (
+                        
+                        <div className="certificate-card" key={index}>
 
-            <button
-                className="view-all-btn"
-                onClick={() => setShowAll(prev => !prev)}
-            >
-                {showAll ? "Show Less" : "View All"}
-            </button>
+                        <img src={cert.image} alt="certificate" />
 
-            <div className={`certificates-container ${showAll ? "scroll" : ""}`}>
-                {visibleCertificates.map((cert, index) => (
-                    
-                    <div className="certificate-card" key={index}>
+                        {/* ✅ ADD THIS WRAPPER */}
+                        <div className="overlay">
+                            <div className="overlay-content">
+                            <h4>{cert.title}</h4>
+                            <p>{cert.platform}</p>
+                            <span>{cert.date}</span>
 
-                    <img src={cert.image} alt="certificate" />
-
-                    {/* ✅ ADD THIS WRAPPER */}
-                    <div className="overlay">
-                        <div className="overlay-content">
-                        <h4>{cert.title}</h4>
-                        <p>{cert.platform}</p>
-                        <span>{cert.date}</span>
-
-                        <button className="verify-btn" onClick={() => window.open(cert.link, "_blank")}>Verify</button>
+                            <button className="verify-btn" onClick={() => window.open(cert.link, "_blank")}>Verify</button>
+                        </div>
+                        </div>
                     </div>
+                    ))}
+                </div>
+
+            </section>
+
+            {/* Get in touch */}
+
+            {/* <section className="get-in-touch-section">
+                <div className="get-in-touch-heading">
+                    <h3>Get In Touch</h3>
+                    <p>Got an idea, a question or just want to say hi ? My inbox is always open!</p>
+                    <div className="bar"></div>
+                </div>
+
+                <div className="social-handles">
+                    <div className="handles">
+                        <img src={leetCode}/>
+                        <p>LeetCode</p>
+                    </div>
+                    <div className="handles">
+                        <img src={hackerRank}/>
+                        <p>HackerRank</p>
+                    </div>
+                    <div className="handles">
+                        <img src={frontendMentor}/>
+                        <p>FrontendMentor</p>
                     </div>
                 </div>
-                ))}
-            </div>
+            </section> */}
 
-        </section>
-            
+            {/* Portfolio */}
+            <section className="portfolio-section">
+                <div className="portfolio-heading">
+                    <h3>Portfolio</h3>
+                    <p>Explore my work and projects. Ready to collaborate or view details? Choose your preferred way to connect!</p>
+                    <div className="bar"></div>
+                </div>
+
+                <div className="get-in-touch-handles">
+                    
+                    <div className="platform">
+                        <img src={instagram} alt="Instagram" />
+                        <p>Instagram</p>
+                    </div>
+                    <div className="platform">
+                        <img src={twitter} alt="Twitter" />
+                        <p>Twitter</p>
+                    </div>
+                    <div className="platform">
+                        <img src={telegram} alt="Telegram" />
+                        <p>Telegram</p>
+                    </div>
+                    <div className="platform">
+                        <img src={frontendMentor} alt="frontendMentor" />
+                        <p>FrontendMentor</p>
+                    </div>
+                    <div className="platform">
+                        <img src={leetCode} alt="frontendMentor" />
+                        <p>LeetCode</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer className="footer">
+                <p className="footer-intro">@ 2026 Made with 💜 by Prachi B. All rights reserved.</p>
+
+                <p className="built">
+                    Built with <span className="react"><img src={react}/></span>
+                    using <span className="vite"><img src={vite}/></span>
+                </p>
+
+                {/* <div class="hits">
+                    <span>hits</span>
+                    <span class="count">707</span>
+                </div> */}
+            </footer>
     </main>
 
     </>
