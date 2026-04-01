@@ -168,7 +168,7 @@ export function Home() {
             {/* About Me */}
             <section id="about-section">
                 <div className="about-me">
-                    <div className="about">
+                    <div className="about-intro">
                         <h2 id="about-heading">About Me</h2>
                         <div className="bar"></div>
                     </div>
@@ -251,7 +251,7 @@ export function Home() {
                         <h3>Backend</h3>
                         <hr/>
                     </div>
-                    <p>Powering applications with robust server-side logic</p>
+                    <p className="text">Powering applications with robust server-side logic</p>
                     <div className="backend-stacks">
                         <div className="stack">
                             <img src={node} />
@@ -278,7 +278,7 @@ export function Home() {
                         <h3>Languages</h3>
                         <hr/>
                     </div>
-                    <p>Core programming languages I work with</p>
+                    <p className="text">Core programming languages I work with</p>
 
                     <div className="language-stack">
                         <div className="stack">
@@ -293,7 +293,7 @@ export function Home() {
                         <h3>Tools & Platform</h3>
                         <hr/>
                     </div>
-                    <p>Dev tools and platforms that streamline my workflow</p>
+                    <p className="text">Dev tools and platforms that streamline my workflow</p>
 
                     <div className="tools-stack">
                         <div className="stack">
@@ -565,10 +565,6 @@ export function Home() {
                     using <span className="vite"><img src={vite}/></span>
                 </p>
 
-                <div class="hits">
-                    <span>hits</span>
-                    <span class="count">707</span>
-                </div>
             </footer>
     </main>
 
