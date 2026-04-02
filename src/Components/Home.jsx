@@ -166,7 +166,7 @@ export function Home() {
             {/* About Section */}
 
             {/* About Me */}
-            <section id="about-section">
+            <section className="about-section">
                 <div className="about-me">
                     <div className="about-intro">
                         <h2 id="about-heading">About Me</h2>
@@ -523,10 +523,10 @@ export function Home() {
                 </div>
             </section> */}
 
-            {/* Portfolio */}
-            <section className="portfolio-section">
-                <div className="portfolio-heading">
-                    <h3>Portfolio</h3>
+            {/* Get in touch */}
+            <section className="get-in-touch-section">
+                <div className="get-in-touch-heading">
+                    <h3>Get in touch</h3>
                     <p>Explore my work and projects. Ready to collaborate or view details? Choose your preferred way to connect!</p>
                     <div className="bar"></div>
                 </div>

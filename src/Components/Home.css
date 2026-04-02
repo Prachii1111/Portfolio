@@ -51,9 +51,9 @@ body.light {
   color: var(--text-light);
 }
 
-section:nth-child(even) {
+/* section:nth-child(even) {
   background: #0f0f14;
-}
+} */
 
 .header {
   position: fixed;
@@ -167,6 +167,22 @@ body.light .theme-btn {
   color: var(--bg-dark);
 }
 
+
+/* About Section */
+
+section {
+  padding: 80px 8%;
+}
+
+section:nth-child(even) {
+  background: #0f0f14;
+  /* background:#f4d96c; */
+}
+
+section:nth-child(odd) {
+  background: linear-gradient(to right, #0f021a, #2d1248);
+}
+
 /* Hero section  */
 
 .hero {
@@ -175,18 +191,20 @@ body.light .theme-btn {
   align-items: center;
   padding: 80px 8%;
   min-height: 80vh;
-  /* border: 1px solid red; */
+  border: 1px solid red;
   /* background: linear-gradient(to right, #0f021a, #1b082f); */
-  background: var(--bg-dark);
+  /* background: var(--bg-dark); */
   /* color: var(--text-main); */
 }
 
 .hero-left {
   max-width: 600px;
+  /* border: 1px solid cadetblue; */
 }
 
 .hero-left h1 {
-  font-size: 70px;
+  /* font-size: 68px; */
+  font-size: 4.25rem;
   font-weight: bold;
 }
 
@@ -212,6 +230,7 @@ body.light .theme-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid mediumpurple; */
 }
 
 .profile-pic {
@@ -222,18 +241,9 @@ body.light .theme-btn {
   border: 3px solid var(--accent);
 }
 
+/* About section */
 
-/* About Section */
-
-section {
-  padding: 80px 8%;
-}
-
-section:nth-child(even) {
-  background: #0f0f14;
-}
-
-#about-section {
+.about-section {
   border: 1px solid orange;
   display: flex;
   /* padding: 80px 8%; */
@@ -254,7 +264,7 @@ section:nth-child(even) {
 }
 
 .about-intro {
-  /* border: 1px solid green; */
+  border: 1px solid green;
   display: flex;
   flex-direction: column;
   /* gap: 20px; */
@@ -273,6 +283,7 @@ section:nth-child(even) {
   font-size: 2.2rem;
   /* border: 1px solid hotpink; */
 }
+
 .about-desc {
   margin-top: 20px;
   font-size: 18px;
@@ -384,7 +395,7 @@ section:nth-child(even) {
   letter-spacing: 0.7px;
 }
 
-.about .bar,
+.about-intro .bar,
 .skills-header .bar,
 .project-heading .bar {
   /* width: 60px;
@@ -404,7 +415,7 @@ section:nth-child(even) {
 .backend,
 .languages,
 .toolsPlatform {
-  border: 1px solid yellowgreen;
+  /* border: 1px solid yellowgreen; */
   /* background: linear-gradient(
   135deg,
   rgba(255, 255, 255, 0.15) 0%,
@@ -417,7 +428,8 @@ section:nth-child(even) {
 
   /* border-radius: 16px; */
   /* padding: 20px; */
-  padding: 80px 8%;
+  /* padding: 80px 8%; */
+  padding: 70px 7%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -513,7 +525,7 @@ section:nth-child(even) {
 /* Projects section */
 .projects-section {
   /* border: 1px solid blue; */
-  /* background: linear-gradient(to right, #0f021a, #340f5a); */
+  /* background: linear-gradient(to right, #0f021a, #2d1248); */
 }
 
 .project-heading {
@@ -934,7 +946,7 @@ body.light .heading hr {
 } */
 
 /* ------------ */
-.portfolio-section {
+.get-in-touch-section {
   /* background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%,
   var(--light) 100%); */
   /* background: linear-gradient(to right, #0f021a, #340f5a);   */
@@ -948,11 +960,11 @@ body.light .heading hr {
   gap: 30px;
 }
 
-.portfolio-heading {
+.get-in-touch-heading {
   /* border: 1px solid aliceblue; */
 }
 
-.portfolio-heading h3 {
+.get-in-touch-heading h3 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   /* background: linear-gradient(45deg, #00d4ff, #5b8bf5); */
@@ -962,7 +974,7 @@ body.light .heading hr {
   -webkit-text-fill-color: transparent; */
 }
 
-.portfolio-heading p {
+.get-in-touch-heading p {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -970,7 +982,7 @@ body.light .heading hr {
 }
 
 .bar {
-  height: 4px;
+  height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-hover));
   width: 100px;
   margin: 1rem auto;
@@ -1024,12 +1036,12 @@ body.light .heading hr {
   padding: 30px 20px;
   /* background: linear-gradient(to right, #020617, #0a1a3a); */
   /* background: linear-gradient(to right, #0f021a, #340f5a);   */
-  color: #cbd5f5;
   font-size: 14px;
 }
 
 .footer-intro {
   font-size: 0.99rem;
+  color: var(--bg-light-card)
 }
 
 .footer .built {
